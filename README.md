@@ -9,28 +9,28 @@
 | 파일 | 역할 |
 | --- | --- |
 | `SKILL.md` | 스킬 본문 — 추출 → 중복확인 → 요약 → 접지검증 → 관련노트 연결 → 저장 절차 |
-| `scripts/fetch_captions.py` | 유튜브 URL에서 제목·채널·자막을 추출해 JSON으로 출력 (토큰 0) |
+| `scripts/fetch_captions.py` | 유튜브 URL에서 제목·채널·자막을 추출해 JSON으로 출력 |
 
 ## 설치
 
 Claude Code 스킬 디렉터리에 배치합니다:
 
 ```bash
-git clone https://github.com/jeonjin2/yt2note.git ~/.claude/skills/yt2note
+git clone https://github.com/jeonjin2/obsidian-note-generator.git ~/.claude/skills/yt2note
 ```
 
 ## 의존성
 
-- [yt-dlp](https://github.com/yt-dlp/yt-dlp) — 유튜브 자막 추출 (`brew install yt-dlp` 또는 `pip install yt-dlp`)
-- Python 3
+- **Claude Code** — 스킬 실행 환경. LLM 대화 공유링크는 내장 브라우저 도구로 페이지를 읽고, 요약은 Haiku 서브에이전트로 처리합니다(별도 API 키 불필요).
+- [yt-dlp](https://github.com/yt-dlp/yt-dlp) + **Python 3** — 유튜브 자막 추출에만 필요 (`brew install yt-dlp` 또는 `pip install yt-dlp`). 대화링크·로컬 파일만 쓸 거면 없어도 됩니다.
 
 ## 개인화 (필수)
 
 이 스킬은 원 저자의 환경 기준으로 작성돼 있습니다. 사용 전 아래를 **본인 환경에 맞게 수정**하세요.
 
 - **볼트 경로**: `SKILL.md` 상단의 `<VAULT>` 를 본인 Obsidian 볼트 경로로 바꿉니다.
-- **섹터(폴더) 목록**: `SKILL.md` 3단계의 섹터 목록(경제·금융, 과학 등)은 예시이므로 본인 볼트의 폴더 구조에 맞게 조정합니다.
-- **노트 형식**: 5단계의 frontmatter·섹션 형식이 본인 노트 스타일과 다르면 수정합니다.
+- **섹터(폴더) 목록**: `SKILL.md` 「3. Haiku 요약」의 섹터 목록(경제·금융, 과학 등)은 예시이므로 본인 볼트의 폴더 구조에 맞게 조정합니다.
+- **노트 형식**: 「5. 저장」의 frontmatter·섹션 형식이 본인 노트 스타일과 다르면 수정합니다.
 
 ## 사용법
 
